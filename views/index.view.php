@@ -37,6 +37,7 @@
         </div> -->
 
         <?php
+
             require_once "partials/inicio.part.php";
         ?>
             <div class="slider-area">
@@ -44,7 +45,7 @@
                     <div id="bg-slider" class="owl-carousel owl-theme">
                         <div class="item"><img src="../assets/img/slide1/slider-image-1.jpg" alt="GTA V"></div>
                         <div class="item"><img src="../assets/img/slide1/slider-image-2.jpg" alt="The Last of us"></div>
-                        <div class="item"><img src="../assets/img/slide1/slider-image-1.jpg" alt="GTA V"></div>
+                        <div class="item"><img src="../assets/img/slide1/slider-image-4.jpg" alt="GTA V"></div>
                 </div>
                 <div class="slider-content">
                 <div class="row">
