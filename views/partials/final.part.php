@@ -8,14 +8,14 @@
                             <div class="single-footer">
                                 <h4>Colaboradores</h4>
                                 <div class="footer-title-line"></div>
-
-                                <img src="assets/img/footer-logo.png" alt="" class="wow pulse" data-wow-delay="1s">
-                                <p>Lorem ipsum dolor cum necessitatibus su quisquam molestias. Vel unde, blanditiis.</p>
-                                <ul class="footer-adress">
-                                    <li><i class="pe-7s-map-marker strong"> </i> 9089 your adress her</li>
-                                    <li><i class="pe-7s-mail strong"> </i> email@yourcompany.com</li>
-                                    <li><i class="pe-7s-call strong"> </i> +1 908 967 5906</li>
-                                </ul>
+                                
+                                
+                                    <?php
+                                        require_once '..\entity\Colaboradores.php';
+                                        
+                                        require_once '..\testeos\testeoColaboradores.php';
+                                    ?>
+                                
                             </div>
                         </div>
 
