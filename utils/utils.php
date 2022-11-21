@@ -19,4 +19,10 @@ function changeClassAbout(){
                     echo "active";
                 }           
             }
+function changeClassUpload(){
+            $url = $_SERVER['REQUEST_URI'];
+                if($url == '/views/upload.view.php'){
+                        echo "active";
+                    }           
+                }
 

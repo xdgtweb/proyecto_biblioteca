@@ -2,38 +2,34 @@
 require_once "../exceptions/FileException.php";
 
 class File {
-    var $archivo;
-    var $tipo;
-    var $nombre;
-    var $nombreTMP;
+    private $type  = array("image/jpg", "image/jpeg", "image/png", "image/gif");
+    private $file;
 
-    function __construct($archivo, $tipo, $nombre, $nombreTMP){
-        $this->archivo = $archivo;
-        $this->tipo = $tipo;
-        $this->nombre = $nombre;
-        $this->nombreTMP = $nombreTMP;
+    function __construct($nombre){
+        if(!in_array($_FILES[$nombre]['type'], $this->types)){
+            throw new FileException('El archivo no es una imagen');
+        }
+        $this->file = $_FILES[$nombre];
+
+
     }
 
-    function saveUploadFile($rutadestino){
-                $archivo = $_FILES['archivo'];
-                $tipo = $archivo['type'];
-                $nombre = $archivo['name'];
-                $nombreTMP = $archivo['tmp_name'];
+    function saveUploadFile($ruta){
+        $rutaCompleta = $ruta . $this->file["nombre"];
 
-                try{
-                    if($tipo == "image/jpg" || $tipo == "image/jpeg" || $tipo == "image/png" || $tipo == "image/gif"){
-                        if(!is_dir("..\..\assets\img\colaboradores/")){
-                            mkdir("..\..\assets\img\colaboradores/"); 
-                        }
-                    }else{
-                        throw new FileException('Los archivos no son del tipo jpg, jpeg, png o gif.');
-                    }
+        while(is_fila($rutaCompleta)){
+            $nombre = random_int(1, 1000) . $this->file['nombre'];
+            $rutaCompleta = $ruta . $nombre;
+            $this->file['nombre'] = $nombre;
+        }
 
-                    if(!move_uploaded_file($nombreTMP, '..\..\assets\img\colaboradores/' . $nombre)){
-                        throw new FileException('No ha podido subirse el archivo.');
-                    }
-                }catch (FileException $ex) { }
-
-                }
-            
+        $temp = $this->file['tmp_name'];
+        if(!move_uploaded_file($temp, $rutaCompleta)){
+            throw new FileException('El archivo no se ha subido correctamente');
+        }
     }
+
+    public function getName(){
+        return $this->file['nombre'];
+    }
+}

@@ -57,6 +57,7 @@
                             <a class=<?php changeClassAbout(); ?> href="property.html">Zona Personal</a>
                         </li>
                         <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/views/contact.view.php" class=<?php changeClassContact(); ?>>Contacto</a></li>
+                        <li class="wow fadeInDown" data-wow-delay="0.5s"><a href="/views/upload.view.php" class=<?php changeClassUpload(); ?>>Subir Imagenes</a></li>
                     </ul>
                 </div><!-- /.navbar-collapse -->
             </div><!-- /.container-fluid -->

@@ -2,7 +2,7 @@
 
 class Database_exception extends Exception{
 
-    public function __construct(){
-        $this->message = 'Fallo en la conexión a la base de datos';
+    public function __construct($mensaje){
+        parent::__construct($mensaje);
     }
 }
